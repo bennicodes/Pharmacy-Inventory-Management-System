@@ -94,7 +94,7 @@ main {
 }
 
 /* Button Styling */
-.add-medicine__btn {
+.add-medicine__button {
   display: block;
   width: 100%;
   padding: var(--spacing-medium);
@@ -108,10 +108,10 @@ main {
   transition: 0.2s linear;
 }
 
-.add-medicine__btn:hover {
+.add-medicine__button:hover {
   background-color: var(--button-hover-color);
 }
-.add-medicine__btn:active {
+.add-medicine__button:active {
   transform: scale(0.99);
 }
 
@@ -135,7 +135,7 @@ main {
     padding: var(--spacing-small);
   }
 
-  .add-medicine__btn {
+  .add-medicine__button {
     font-size: var(--font-size-base);
   }
 }
