@@ -1,0 +1,176 @@
+body {
+  min-width: 340px;
+  min-height: 100vh;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: var(--spacing-medium);
+}
+
+header {
+  background-color: var(--primary-color);
+  color: var(--header-text-color);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius);
+  margin: var(--spacing-medium);
+  text-align: center;
+}
+
+main {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-medium) 0;
+  margin: auto;
+}
+
+/* Inventory Table Styling */
+.inventory-section {
+  width: 100%;
+  padding: var(--spacing-medium) 0;
+}
+
+.inventory__table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.inventory__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-medium);
+}
+
+.inventory__table th,
+.inventory__table td {
+  border: 1px solid var(--secondary-color);
+  padding: var(--spacing-medium);
+  text-align: left;
+  word-break: break-word;
+  text-align: center;
+}
+
+.inventory__table th {
+  background-color: var(--secondary-color);
+  color: var(--header-text-color);
+}
+
+/* Add Medicine Section */
+.add-medicine {
+  width: 100%;
+  padding: var(--spacing-medium);
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px #0000001a;
+}
+
+.add-medicine__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  padding-top: var(--spacing-medium);
+}
+
+.add-medicine__input-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+}
+
+.add-medicine__input-label {
+  font-size: var(--font-size-base);
+  font-weight: bold;
+}
+
+.add-medicine__input {
+  width: 100%;
+  padding: var(--spacing-small);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+}
+
+/* Button Styling */
+.add-medicine__btn {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-medium);
+  background-color: var(--button-color);
+  color: var(--header-text-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-medium);
+  cursor: pointer;
+  margin-top: var(--spacing-medium);
+  transition: 0.2s linear;
+}
+
+.add-medicine__btn:hover {
+  background-color: var(--button-hover-color);
+}
+.add-medicine__btn:active {
+  transform: scale(0.99);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: var(--spacing-medium);
+  }
+
+  .inventory__table-container {
+    overflow-x: auto;
+  }
+
+  .inventory__table th,
+  .inventory__table td {
+    padding: var(--spacing-small);
+  }
+
+  .add-medicine {
+    padding: var(--spacing-small);
+  }
+
+  .add-medicine__btn {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header__title {
+    font-size: var(--font-size-medium);
+  }
+  .inventory__table-row th {
+    font-size: var(--font-size-small);
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .inventory__title {
+    font-size: var(--font-size-base);
+  }
+  .inventory__table-row th {
+    font-size: 0.3rem;
+  }
+  .add-medicine__title {
+    font-size: var(--font-size-base);
+  }
+  .add-medicine__input-label {
+    font-size: var(--font-size-small);
+  }
+}
+
+@media (max-width: 340px) {
+  .inventory__table th,
+  .inventory__table td {
+    padding: var(--spacing-small);
+  }
+
+  .add-medicine__input {
+    font-size: calc(var(--font-size-base) * 0.9);
+  }
+}

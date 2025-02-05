@@ -1,0 +1,27 @@
+:root {
+  /* Colors */
+  --primary-color: #2a9d8f;
+  --secondary-color: #264653;
+  --background-color: #f4f4f4;
+  --text-color: #000;
+  --header-text-color: #fff;
+
+  /* Spacing */
+  --spacing-small: 0.5rem;
+  --spacing-medium: 1rem;
+  --spacing-large: 2rem;
+  --spacing-xlarge: 4rem;
+
+  /* Buttons */
+  --button-color: #e76f51;
+  --button-hover-color: #d65a3f;
+
+  /* Font Size */
+  --font-size-small: 0.8rem;
+  --font-size-base: 1rem;
+  --font-size-medium: 1.25rem;
+  --font-size-xl: 1.5rem;
+
+  /* Borders */
+  --border-radius: 0.5rem;
+}

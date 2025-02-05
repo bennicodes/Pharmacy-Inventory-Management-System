@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pharmacy Inventory</title>
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/variables.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="header__title">Pharmacy Inventory</h1>
+    </header>
+    <main>
+      <section class="inventory-section">
+        <h2 class="inventory__title">Inventory List</h2>
+        <table class="inventory__table">
+          <thead class="inventory__table-head">
+            <tr class="inventory__table-row">
+              <th class="inventory__table-header">Product Name</th>
+              <th class="inventory__table-header">Product ID</th>
+              <th class="inventory__table-header">Manufacturer</th>
+              <th class="inventory__table-header">Expiration Date</th>
+              <th class="inventory__table-header">Quantity</th>
+              <th class="inventory__table-header">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="inventory__product-list">
+            <!-- Dynamic entries will be added here -->
+          </tbody>
+        </table>
+      </section>
+      <section class="add-medicine">
+        <h2 class="add-medicine__title">Add Medicine</h2>
+        <form class="add-medicine__form">
+          <div class="add-medicine__input-container">
+            <label for="product-name" class="add-medicine__input-label"
+              >Product name:</label
+            >
+            <input
+              type="text"
+              id="product-name"
+              class="add-medicine__input"
+              placeholder="Product Name"
+              maxlength="50"
+              required
+            />
+          </div>
+
+          <div class="add-medicine__input-container">
+            <label for="product-manufacturer" class="add-medicine__input-label"
+              >Manufacturer:</label
+            >
+            <input
+              type="text"
+              id="manufacturer"
+              class="add-medicine__input"
+              placeholder="Manufacturer"
+              maxlength="50"
+              required
+            />
+          </div>
+
+          <div class="add-medicine__input-container">
+            <label
+              for="product-expiration-date"
+              class="add-medicine__input-label"
+              >Expiration date:</label
+            >
+            <input
+              type="date"
+              id="expiration-date"
+              class="add-medicine__input"
+              placeholder="Expiration Date"
+              required
+            />
+          </div>
+
+          <div class="add-medicine__input-container">
+            <label for="product-quantity" class="add-medicine__input-label"
+              >Quantity:</label
+            >
+            <input
+              type="number"
+              id="quantity"
+              class="add-medicine__input"
+              placeholder="Quantity"
+              minlength="1"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="add-medicine__btn add-medicine__btn--primary"
+          >
+            Add Medicine
+          </button>
+        </form>
+      </section>
+    </main>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
