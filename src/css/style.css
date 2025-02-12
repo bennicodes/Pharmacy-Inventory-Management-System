@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Lato-Regular;
+  src: url(../assets/fonts/Lato-Regular.ttf);
+}
 body {
   min-width: 340px;
   min-height: 100vh;
@@ -6,6 +10,7 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   padding: var(--spacing-medium);
+  font-family: Lato-Regular, sans-serif;
 }
 
 header {
@@ -24,7 +29,7 @@ main {
   justify-content: center;
   align-items: center;
   padding: var(--spacing-medium) 0;
-  margin: auto;
+  margin: 0 auto;
 }
 
 /* Inventory Table Styling */
@@ -74,18 +79,18 @@ main {
   padding-top: var(--spacing-medium);
 }
 
-.add-medicine__input-container {
+.add-medicine__group {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-small);
 }
 
-.add-medicine__input-label {
+.add-medicine__group label {
   font-size: var(--font-size-base);
   font-weight: bold;
 }
 
-.add-medicine__input {
+.add-medicine__group input {
   width: 100%;
   padding: var(--spacing-small);
   border: 1px solid var(--secondary-color);
