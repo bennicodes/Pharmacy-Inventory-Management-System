@@ -32,75 +32,78 @@
           </tbody>
         </table>
       </section>
-      <section class="add-medicine">
-        <h2 class="add-medicine__title">Add Medicine</h2>
-        <form class="add-medicine__form">
-          <div class="add-medicine__group">
-            <label for="medicine-name" class="add-medicine__input-label"
-              >Medicine name:</label
-            >
-            <input
-              type="text"
-              id="medicine-name"
-              class="add-medicine__name-input"
-              placeholder="Medicine Name"
-              maxlength="50"
-              required
-            />
-          </div>
-
-          <div class="add-medicine__group">
-            <label for="medicine-manufacturer" class="add-medicine__input-label"
-              >Manufacturer:</label
-            >
-            <input
-              type="text"
-              id="manufacturer"
-              class="add-medicine__manufacturer-input"
-              placeholder="Manufacturer"
-              maxlength="50"
-              required
-            />
-          </div>
-
-          <div class="add-medicine__group">
-            <label
-              for="medicine-expiration-date"
-              class="add-medicine__input-label"
-              >Expiration date:</label
-            >
-            <input
-              type="date"
-              id="expiration-date"
-              class="add-medicine__date-input"
-              placeholder="Expiration Date"
-              required
-            />
-          </div>
-
-          <div class="add-medicine__group">
-            <label for="medicine-quantity" class="add-medicine__input-label"
-              >Quantity:</label
-            >
-            <input
-              type="number"
-              id="quantity"
-              class="add-medicine__quantity-input"
-              placeholder="Quantity"
-              minlength="1"
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            class="add-medicine__button add-medicine__button--primary"
-          >
-            Add Medicine
-          </button>
-        </form>
-      </section>
+      <button type="submit" class="add-medicine__button">Add Medicine</button>
     </main>
 
+    <!-- ADD MEDICINE MODAL -->
+    <div class="add-medicine">
+      <form class="add-medicine__form">
+        <h2 class="add-medicine__title">Add Medicine</h2>
+        <div class="add-medicine__group">
+          <label for="medicine-name" class="add-medicine__input-label"
+            >Medicine name:</label
+          >
+          <input
+            type="text"
+            id="medicine-name"
+            class="add-medicine__name-input"
+            placeholder="Medicine Name"
+            maxlength="50"
+            required
+          />
+        </div>
+
+        <div class="add-medicine__group">
+          <label for="medicine-manufacturer" class="add-medicine__input-label"
+            >Manufacturer:</label
+          >
+          <input
+            type="text"
+            id="manufacturer"
+            class="add-medicine__manufacturer-input"
+            placeholder="Manufacturer"
+            maxlength="50"
+            required
+          />
+        </div>
+
+        <div class="add-medicine__group">
+          <label
+            for="medicine-expiration-date"
+            class="add-medicine__input-label"
+            >Expiration date:</label
+          >
+          <input
+            type="date"
+            id="expiration-date"
+            class="add-medicine__date-input"
+            placeholder="Expiration Date"
+            required
+          />
+        </div>
+
+        <div class="add-medicine__group">
+          <label for="medicine-quantity" class="add-medicine__input-label"
+            >Quantity:</label
+          >
+          <input
+            type="number"
+            id="quantity"
+            class="add-medicine__quantity-input"
+            placeholder="Quantity"
+            minlength="1"
+            required
+          />
+        </div>
+
+        <div class="add-medicine__buttons-container">
+          <button class="add-medicine__add-button">Add</button>
+          <button class="add-medicine__close-button">Close</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- DELETE MODAL -->
     <div class="delete-modal-container">
       <div class="delete-modal">
         <p class="delete-modal__text">Delete message</p>
