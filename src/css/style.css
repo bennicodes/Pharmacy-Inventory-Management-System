@@ -154,7 +154,8 @@ main {
   right: 100px;
 }
 
-.add-medicine__button:hover {
+.add-medicine__button:hover,
+.add-medicine__buttons-container button:hover {
   background-color: var(--button-hover-color);
 }
 .add-medicine__button:active {
