@@ -1,0 +1,5 @@
+.validation-message {
+  flex-grow: 1;
+  text-align: center;
+  padding: var(--spacing-small) 0;
+}

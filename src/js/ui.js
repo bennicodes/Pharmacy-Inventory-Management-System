@@ -1,13 +1,22 @@
 class Ui {
-  static displayAddMedicine(openAddMedicineModalButton, addMedicineModal) {
-    openAddMedicineModalButton.addEventListener("click", () => {
-      addMedicineModal.classList.add("display-add-medicine");
+  static displayAddMedicine(
+    addMedicineButton,
+    medicineModal,
+    form,
+    validationMessage,
+    formSubmitButton
+  ) {
+    addMedicineButton.addEventListener("click", () => {
+      form.reset();
+      medicineModal.classList.add("display-add-medicine");
     });
+    validationMessage.style.display = "none";
+    formSubmitButton.textContent = "Add";
   }
 
-  static closeAddMedicineModal(closeAddMedicineModalButton, addMedicineModal) {
-    closeAddMedicineModalButton.addEventListener("click", () => {
-      addMedicineModal.classList.remove("display-add-medicine");
+  static closeAddMedicineModal(closeMedicineModalButton, medicineModal) {
+    closeMedicineModalButton.addEventListener("click", () => {
+      medicineModal.classList.remove("display-add-medicine");
     });
   }
 }
