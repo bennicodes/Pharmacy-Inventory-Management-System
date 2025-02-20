@@ -47,8 +47,9 @@ class Ui {
       const quantityCell = document.createElement("td");
       quantityCell.textContent = medicine.quantity;
 
+      const actionButtonsContainer = document.createElement("div");
+      actionButtonsContainer.classList.add("action-buttons__container");
       const actionsCell = document.createElement("td");
-      actionsCell.classList.add("action-cell");
 
       // Create Edit Button
       const editButton = document.createElement("button");
@@ -63,7 +64,8 @@ class Ui {
       deleteButton.setAttribute("data-id", index);
 
       // Append buttons to actions cell
-      actionsCell.append(editButton, deleteButton);
+      actionsCell.append(actionButtonsContainer);
+      actionButtonsContainer.append(editButton, deleteButton);
 
       // Append all table cells to the row
       row.append(

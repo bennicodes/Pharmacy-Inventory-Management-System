@@ -1,6 +1,44 @@
-.action-cell {
+/* Inventory Table Styling */
+.inventory-section {
+  width: 100%;
+  padding-bottom: var(--spacing-medium);
+}
+
+.inventory__table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.inventory__title {
+  padding: var(--spacing-medium);
+}
+
+.inventory__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory__table th,
+.inventory__table td {
+  border: 1px solid var(--secondary-color);
+  padding: var(--spacing-small);
+  text-align: left;
+  word-break: break-word;
+  text-align: center;
+}
+
+.inventory__table th {
+  background-color: var(--secondary-color);
+  color: var(--header-text-color);
+}
+
+.action-buttons__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: var(--spacing-small);
 }
+
 .edit-button,
 .delete-button {
   width: 32px;
