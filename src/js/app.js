@@ -25,6 +25,7 @@ const quantity = document.querySelector(".add-medicine__quantity-input");
 const validationMessage = document.querySelector(".validation-message");
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Open add medicine modal
   Ui.displayAddMedicine(
     addMedicineButton,
     medicineModal,
@@ -33,9 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
     formSubmitButton
   );
 
+  // Close add medicine modal
   Ui.closeAddMedicineModal(closeMedicineModalButton, medicineModal);
 
-  // Handle add medicine event
+  // Render medicines
+  Ui.renderMedicines();
+
+  // Submit form
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -46,6 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         expirationDate.value,
         quantity.value
       );
+      Ui.renderMedicines();
     } else {
       MedicineManager.editMedicine(
         Ui.currentEditId,
@@ -56,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       Ui.currentEditId = null;
       medicineModal.classList.remove("display-add-medicine");
+      Ui.renderMedicines();
     }
   });
 });

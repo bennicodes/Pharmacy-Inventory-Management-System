@@ -1,0 +1,8 @@
+.action-cell {
+  gap: var(--spacing-small);
+}
+.edit-button,
+.delete-button {
+  width: 32px;
+  height: 32px;
+}
