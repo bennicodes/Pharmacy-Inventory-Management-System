@@ -1,5 +1,10 @@
+.form__invalid-input {
+  border: 3px solid #e32f2f;
+}
 .validation-message {
+  color: #e32f2f;
   flex-grow: 1;
   text-align: center;
   padding: var(--spacing-small) 0;
+  display: block;
 }
