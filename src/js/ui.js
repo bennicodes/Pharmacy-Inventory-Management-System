@@ -12,9 +12,10 @@ class Ui {
     addMedicineButton.addEventListener("click", () => {
       form.reset();
       medicineModal.classList.add("display-add-medicine");
+      Ui.currentEditId = null;
+      formSubmitButton.textContent = "Add";
+      validationMessage.style.display = "none";
     });
-    validationMessage.style.display = "none";
-    formSubmitButton.textContent = "Add";
   }
 
   static closeAddMedicineModal(closeMedicineModalButton, medicineModal) {
