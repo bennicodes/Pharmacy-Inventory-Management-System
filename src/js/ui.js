@@ -1,4 +1,7 @@
+import MedicineManager from "./medicineManager";
+
 class Ui {
+  static currentEditId = null;
   static displayAddMedicine(
     addMedicineButton,
     medicineModal,
@@ -17,6 +20,32 @@ class Ui {
   static closeAddMedicineModal(closeMedicineModalButton, medicineModal) {
     closeMedicineModalButton.addEventListener("click", () => {
       medicineModal.classList.remove("display-add-medicine");
+    });
+  }
+
+  static displayDeleteModal(medicineId, medicineName) {
+    const deleteModal = document.querySelector(".delete-modal-container");
+    const deleteMessage = document.querySelector(".delete-modal__text");
+    const confirmDeleteButton = document.querySelector(
+      ".delete-modal__button--confirm"
+    );
+
+    deleteMessage.textContent = `Are you sure you want to delete ${medicineName}?`;
+    deleteModal.classList.add("display-delete-modal");
+
+    confirmDeleteButton.addEventListener("click", () => {
+      MedicineManager.deleteMedicine(medicineId);
+      deleteModal.classList.remove("display-delete-modal");
+    });
+  }
+
+  static closeDeleteModal() {
+    const deleteModal = document.querySelector(".delete-modal-container");
+    const cancelDeleteButton = document.querySelector(
+      ".delete-modal__button--cancel"
+    );
+    cancelDeleteButton.addEventListener("click", () => {
+      deleteModal.classList.remove("display-delete-modal");
     });
   }
 
@@ -79,6 +108,11 @@ class Ui {
 
       // Append row to the table body
       medicineList.append(row);
+
+      // Event listeners
+      deleteButton.addEventListener("click", () => {
+        Ui.displayDeleteModal(medicine.id, medicine.name);
+      });
     });
   }
 }

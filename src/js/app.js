@@ -22,6 +22,7 @@ const manufacturer = document.querySelector(
 const expirationDate = document.querySelector(".add-medicine__date-input");
 const quantity = document.querySelector(".add-medicine__quantity-input");
 
+const deleteButton = document.querySelector(".delete-button");
 const validationMessage = document.querySelector(".validation-message");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36,33 +37,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Close add medicine modal
   Ui.closeAddMedicineModal(closeMedicineModalButton, medicineModal);
-
+  // Delete modal
+  Ui.closeDeleteModal();
   // Render medicines
   Ui.renderMedicines();
+});
 
-  // Submit form
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+// Submit form
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    if (!Ui.currentEditId) {
-      MedicineManager.addMedicine(
-        name.value.trim(),
-        manufacturer.value.trim(),
-        expirationDate.value,
-        quantity.value
-      );
-      Ui.renderMedicines();
-    } else {
-      MedicineManager.editMedicine(
-        Ui.currentEditId,
-        name.value.trim(),
-        manufacturer.value.trim(),
-        expirationDate.value,
-        quantity.value
-      );
-      Ui.currentEditId = null;
-      medicineModal.classList.remove("display-add-medicine");
-      Ui.renderMedicines();
-    }
-  });
+  if (!Ui.currentEditId) {
+    MedicineManager.addMedicine(
+      name.value.trim(),
+      manufacturer.value.trim(),
+      expirationDate.value,
+      quantity.value
+    );
+    Ui.renderMedicines();
+  } else {
+    MedicineManager.editMedicine(
+      Ui.currentEditId,
+      name.value.trim(),
+      manufacturer.value.trim(),
+      expirationDate.value,
+      quantity.value
+    );
+    Ui.currentEditId = null;
+    medicineModal.classList.remove("display-add-medicine");
+    Ui.renderMedicines();
+  }
 });

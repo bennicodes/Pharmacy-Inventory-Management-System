@@ -1,5 +1,6 @@
 import { parse } from "uuid";
 import Medicine from "./medicine.js";
+import Ui from "./ui.js";
 class MedicineManager {
   static medicineCollection =
     JSON.parse(localStorage.getItem("medicine-collection")) || [];
@@ -29,8 +30,21 @@ class MedicineManager {
     console.log(this.medicineCollection);
   }
 
+  // Store medicine
   static storeMedicine(collection) {
     localStorage.setItem("medicine-collection", JSON.stringify(collection));
+  }
+
+  // Delete medicine
+  static deleteMedicine(id) {
+    const latestCollection = JSON.parse(
+      localStorage.getItem("medicine-collection")
+    );
+    MedicineManager.medicineCollection = latestCollection.filter((medicine) => {
+      return medicine.id !== id;
+    });
+    MedicineManager.storeMedicine(MedicineManager.medicineCollection);
+    Ui.renderMedicines();
   }
 }
 
