@@ -46,6 +46,26 @@ class MedicineManager {
     MedicineManager.storeMedicine(MedicineManager.medicineCollection);
     Ui.renderMedicines();
   }
+
+  static editMedicine(id, name, manufacturer, expirationDate, quantity) {
+    const latestCollection = JSON.parse(
+      localStorage.getItem("medicine-collection")
+    );
+    const medicineIndex = latestCollection.findIndex(
+      (medicine) => medicine.id === id
+    );
+    if (medicineIndex !== -1) {
+      latestCollection[medicineIndex] = {
+        id,
+        name,
+        manufacturer,
+        expirationDate,
+        quantity,
+      };
+    }
+    MedicineManager.storeMedicine(latestCollection);
+    MedicineManager.medicineCollection = latestCollection;
+  }
 }
 
 export default MedicineManager;

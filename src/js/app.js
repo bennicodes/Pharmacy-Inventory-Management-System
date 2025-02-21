@@ -65,6 +65,8 @@ form.addEventListener("submit", (e) => {
     );
     Ui.currentEditId = null;
     medicineModal.classList.remove("display-add-medicine");
-    Ui.renderMedicines();
+    formSubmitButton.textContent = "Add";
   }
+  Ui.renderMedicines();
+  form.reset();
 });

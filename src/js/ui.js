@@ -49,6 +49,38 @@ class Ui {
     });
   }
 
+  static displayEditModal() {
+    const medicineModal = document.querySelector(".add-medicine");
+    const formSubmitButton = document.querySelector(
+      ".add-medicine__confirm-button"
+    );
+
+    medicineModal.classList.add("display-add-medicine");
+    formSubmitButton.textContent = "Confirm Edit";
+  }
+
+  static populateEditForm(id) {
+    const name = document.querySelector(".add-medicine__name-input");
+    const manufacturer = document.querySelector(
+      ".add-medicine__manufacturer-input"
+    );
+    const expirationDate = document.querySelector(".add-medicine__date-input");
+    const quantity = document.querySelector(".add-medicine__quantity-input");
+
+    const medicineCollection = JSON.parse(
+      localStorage.getItem("medicine-collection")
+    );
+
+    const medicineToEdit = medicineCollection.find(
+      (medicine) => medicine.id === id
+    );
+    name.value = medicineToEdit.name;
+    manufacturer.value = medicineToEdit.manufacturer;
+    expirationDate.value = medicineToEdit.expirationDate;
+    quantity.value = medicineToEdit.quantity;
+    Ui.currentEditId = medicineToEdit.id;
+  }
+
   static renderMedicines() {
     const medicineList = document.querySelector(".inventory__medicine-list");
     medicineList.innerHTML = "";
@@ -109,9 +141,13 @@ class Ui {
       // Append row to the table body
       medicineList.append(row);
 
-      // Event listeners
+      // Event listeners for buttons
       deleteButton.addEventListener("click", () => {
         Ui.displayDeleteModal(medicine.id, medicine.name);
+      });
+      editButton.addEventListener("click", () => {
+        Ui.displayEditModal();
+        Ui.populateEditForm(medicine.id);
       });
     });
   }
