@@ -43,4 +43,14 @@
 .delete-button {
   width: 32px;
   height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--background-color);
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: var(--secondary-color);
+  color: var(--header-text-color);
+  transition: all 0.2s ease;
 }

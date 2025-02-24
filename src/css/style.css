@@ -32,6 +32,40 @@ main {
   margin: 0 auto;
 }
 
+/* Inventory Table Styling */
+.inventory-section {
+  width: 100%;
+  padding-bottom: var(--spacing-medium);
+}
+
+.inventory__table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.inventory__title {
+  padding: var(--spacing-medium);
+}
+
+.inventory__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory__table th,
+.inventory__table td {
+  border: 1px solid var(--secondary-color);
+  padding: var(--spacing-medium);
+  text-align: left;
+  word-break: break-word;
+  text-align: center;
+}
+
+.inventory__table th {
+  background-color: var(--secondary-color);
+  color: var(--header-text-color);
+}
+
 /* Add Medicine Form */
 .add-medicine {
   width: 100%;
@@ -76,7 +110,7 @@ main {
   font-weight: bold;
 }
 
-.add-medicine__group input {
+input {
   width: 100%;
   padding: var(--spacing-small);
   border: 1px solid var(--secondary-color);

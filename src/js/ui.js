@@ -21,6 +21,10 @@ class Ui {
   static closeAddMedicineModal(closeMedicineModalButton, medicineModal) {
     closeMedicineModalButton.addEventListener("click", () => {
       medicineModal.classList.remove("display-add-medicine");
+      const inputs = document.querySelectorAll(".add-medicine__form input");
+      inputs.forEach((input) => {
+        input.classList.remove("form__invalid-input");
+      });
     });
   }
 
@@ -139,7 +143,7 @@ class Ui {
         actionsCell
       );
 
-      // Append row to the table body
+      // Append row to the table
       medicineList.append(row);
 
       // Event listeners for buttons

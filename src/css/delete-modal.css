@@ -20,20 +20,31 @@
   gap: var(--spacing-medium);
   padding: var(--spacing-x-large);
   border-radius: var(--border-radius);
+  text-align: center;
 }
 
 .delete-modal__buttons-container {
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: var(--spacing-medium);
 }
 
 .delete-modal__button {
   min-width: 64px;
+  background-color: var(--button-color);
+  color: var(--header-text-color);
+  border: none;
+  border-radius: var(--border-radius);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: var(--spacing-small);
+}
+.delete-modal__button:hover {
+  background-color: var(--button-hover-color);
+  transition: all 0.2s ease;
 }
 
 .display-delete-modal {

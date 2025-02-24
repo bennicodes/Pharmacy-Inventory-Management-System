@@ -21,8 +21,6 @@ class Validation {
 
     for (let field of fieldsToValidate) {
       const inputField = document.querySelector(`[id=${field.name}]`);
-
-      inputField.classList.remove("form__invalid-input");
       validationMessage.textContent = "";
       inputField.addEventListener("input", () => {
         inputField.classList.remove("form__invalid-input");
@@ -32,6 +30,7 @@ class Validation {
         validationMessage.style.display = "block";
         validationMessage.textContent = field.message;
         inputField.classList.add("form__invalid-input");
+
         return false;
       }
     }

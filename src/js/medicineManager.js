@@ -1,4 +1,3 @@
-import { parse } from "uuid";
 import Medicine from "./medicine.js";
 import Ui from "./ui.js";
 class MedicineManager {
@@ -10,10 +9,12 @@ class MedicineManager {
       JSON.parse(localStorage.getItem("medicine-collection")) || [];
 
     let medicine;
-    // Check if medicine with the same name and manufacturer exists
+    // Check if medicine with the same name, manufacturer and expiration date exists
     const existingMedicine = latestCollection.find(
       (medicine) =>
-        medicine.name === name && medicine.manufacturer === manufacturer
+        medicine.name === name &&
+        medicine.manufacturer === manufacturer &&
+        medicine.expirationDate === expirationDate
     );
 
     if (existingMedicine) {
@@ -26,8 +27,6 @@ class MedicineManager {
     }
     this.storeMedicine(latestCollection);
     MedicineManager.medicineCollection = latestCollection;
-
-    console.log(this.medicineCollection);
   }
 
   // Store medicine
