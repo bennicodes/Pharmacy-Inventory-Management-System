@@ -27,10 +27,14 @@
   text-align: center;
 }
 
-.inventory__table th {
-  background-color: var(--secondary-color);
-  color: var(--header-text-color);
+.inventory__table-row td:nth-child(even) td {
+  background-color: var(--second-background-color);
 }
+
+.inventory__table tr:nth-child(even) td {
+  background-color: var(--second-background-color);
+}
+
 
 .action-buttons__container {
   display: flex;
@@ -53,4 +57,27 @@
   background-color: var(--secondary-color);
   color: var(--header-text-color);
   transition: all 0.2s ease;
+}
+
+/* Media queries */
+@media screen and (max-width: 580px) {
+  .inventory__table td {
+    font-size: var(--font-size-small);
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 24px;
+    height: 24px;
+    font-size: var(--font-size-small);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .inventory__table td {
+    font-size: 0.5rem;
+  }
+  .action-buttons__container {
+    flex-direction: column;
+  }
 }

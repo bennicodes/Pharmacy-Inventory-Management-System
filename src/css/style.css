@@ -201,12 +201,17 @@ input {
   }
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 580px) {
+  body {
+    padding: var(--spacing-medium) var(--spacing-small);
+  }
   .inventory__title {
     font-size: var(--font-size-base);
   }
   .inventory__table-row th {
-    font-size: 0.3rem;
+    font-size: 0.4rem;
+    line-break: auto;
+    padding: 0;
   }
   .add-medicine__input-label {
     font-size: var(--font-size-small);
