@@ -101,9 +101,6 @@ class Ui {
       const nameCell = document.createElement("td");
       nameCell.textContent = medicine.name;
 
-      const idCell = document.createElement("td");
-      idCell.textContent = index + 1;
-
       const manufacturerCell = document.createElement("td");
       manufacturerCell.textContent = medicine.manufacturer;
 
@@ -136,7 +133,6 @@ class Ui {
       // Append all table cells to the row
       row.append(
         nameCell,
-        idCell,
         manufacturerCell,
         expirationDateCell,
         quantityCell,
