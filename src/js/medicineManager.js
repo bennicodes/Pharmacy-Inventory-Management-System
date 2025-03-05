@@ -33,7 +33,6 @@ class MedicineManager {
       JSON.parse(localStorage.getItem("medicine-collection")) || [];
 
     let medicine;
-    // Use boolean value directly
     if (isPrescription) {
       medicine = new PrescriptionMedicine(
         name,
@@ -50,15 +49,15 @@ class MedicineManager {
       );
     }
 
-    // Check if medicine with the same name, manufacturer, and expiration date exists
+    // Check if medicine already exists
     const existingMedicine = latestCollection.find(
       (medicine) =>
         medicine.name === name &&
         medicine.manufacturer === manufacturer &&
-        medicine.expirationDate === expirationDate
+        medicine.expirationDate === expirationDate &&
+        medicine.isPrescription === isPrescription
     );
 
-    // If medicine exists, increase quantity
     if (existingMedicine) {
       existingMedicine.quantity += parseInt(quantity, 10);
     } else {
@@ -86,7 +85,15 @@ class MedicineManager {
     Ui.renderMedicines();
   }
 
-  static editMedicine(id, name, manufacturer, expirationDate, quantity) {
+  // Edit medicine
+  static editMedicine(
+    id,
+    name,
+    manufacturer,
+    expirationDate,
+    quantity,
+    isPrescription
+  ) {
     const latestCollection = JSON.parse(
       localStorage.getItem("medicine-collection")
     );
@@ -100,6 +107,7 @@ class MedicineManager {
         manufacturer,
         expirationDate,
         quantity,
+        isPrescription,
       };
     }
     MedicineManager.storeMedicine(latestCollection);
