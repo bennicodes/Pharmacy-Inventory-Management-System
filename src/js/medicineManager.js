@@ -6,27 +6,40 @@ import {
 import Ui from "./ui.js";
 class MedicineManager {
   static medicineCollection =
-    JSON.parse(localStorage.getItem("medicine-collection")) || [];
+    JSON.parse(localStorage.getItem("medicine-collection"))?.map((medicine) => {
+      return medicine.isPrescription
+        ? new PrescriptionMedicine(
+            medicine.name,
+            medicine.manufacturer,
+            medicine.expirationDate,
+            medicine.quantity
+          )
+        : new OverTheCounterMedicine(
+            medicine.name,
+            medicine.manufacturer,
+            medicine.expirationDate,
+            medicine.quantity
+          );
+    }) || [];
 
   static addMedicine(
     name,
     manufacturer,
     expirationDate,
     quantity,
-    prescriptionType
+    isPrescription
   ) {
     const latestCollection =
       JSON.parse(localStorage.getItem("medicine-collection")) || [];
 
     let medicine;
-    // Check if it's prescription medicine or over-the-counter
-    if (prescriptionType === "yes") {
+    // Use boolean value directly
+    if (isPrescription) {
       medicine = new PrescriptionMedicine(
         name,
         manufacturer,
         expirationDate,
-        quantity,
-        prescriptionType
+        quantity
       );
     } else {
       medicine = new OverTheCounterMedicine(
@@ -37,7 +50,7 @@ class MedicineManager {
       );
     }
 
-    // Check if medicine with the same name, manufacturer and expiration date exists
+    // Check if medicine with the same name, manufacturer, and expiration date exists
     const existingMedicine = latestCollection.find(
       (medicine) =>
         medicine.name === name &&
@@ -45,12 +58,10 @@ class MedicineManager {
         medicine.expirationDate === expirationDate
     );
 
+    // If medicine exists, increase quantity
     if (existingMedicine) {
-      // If medicine exists, increase quantity by 1
       existingMedicine.quantity += parseInt(quantity, 10);
     } else {
-      medicine = new Medicine(name, manufacturer, expirationDate, quantity);
-
       latestCollection.push(medicine);
     }
 
