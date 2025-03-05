@@ -9,4 +9,18 @@ class Medicine {
   }
 }
 
-export default Medicine;
+class PrescriptionMedicine extends Medicine {
+  constructor(name, manufacturer, expirationDate, quantity, prescription) {
+    super(name, manufacturer, expirationDate, quantity);
+    this.isPrescription = true;
+  }
+}
+
+class OverTheCounterMedicine extends Medicine {
+  constructor(name, manufacturer, expirationDate, quantity) {
+    super(name, manufacturer, expirationDate, quantity);
+    this.isPrescription = false;
+  }
+}
+
+export { Medicine, OverTheCounterMedicine, PrescriptionMedicine };

@@ -1,4 +1,8 @@
-import Medicine from "./medicine.js";
+import {
+  Medicine,
+  OverTheCounterMedicine,
+  PrescriptionMedicine,
+} from "./medicine.js";
 import MedicineManager from "./medicineManager.js";
 import Ui from "./ui.js";
 import Validation from "./validation.js";
@@ -20,6 +24,9 @@ const name = document.querySelector(".add-medicine__name-input");
 const manufacturer = document.querySelector(
   ".add-medicine__manufacturer-input"
 );
+// const prescription = document.querySelector(
+//   'input[name="medicine-prescription"]:checked'
+// ).value;
 const expirationDate = document.querySelector(".add-medicine__date-input");
 const quantity = document.querySelector(".add-medicine__quantity-input");
 
@@ -47,6 +54,17 @@ document.addEventListener("DOMContentLoaded", () => {
 // Submit form
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  const prescriptionRadios = document.getElementsByName(
+    "medicine-prescription"
+  );
+  let isPrescription = false; // Default to "No"
+  prescriptionRadios.forEach((radio) => {
+    if (radio.checked) {
+      isPrescription = radio.value === "yes"; // If "Yes" is selected, set to true
+    }
+  });
+
   if (!Validation.validateForm(validationMessage)) {
     return;
   }
@@ -55,7 +73,8 @@ form.addEventListener("submit", (e) => {
       name.value.trim(),
       manufacturer.value.trim(),
       expirationDate.value,
-      quantity.value
+      quantity.value,
+      isPrescription
     );
     Ui.renderMedicines();
   } else {
@@ -64,7 +83,8 @@ form.addEventListener("submit", (e) => {
       name.value.trim(),
       manufacturer.value.trim(),
       expirationDate.value,
-      quantity.value
+      quantity.value,
+      isPrescription
     );
     Ui.currentEditId = null;
     medicineModal.classList.remove("display-add-medicine");

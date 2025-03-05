@@ -1,14 +1,42 @@
-import Medicine from "./medicine.js";
+import {
+  Medicine,
+  OverTheCounterMedicine,
+  PrescriptionMedicine,
+} from "./medicine.js";
 import Ui from "./ui.js";
 class MedicineManager {
   static medicineCollection =
     JSON.parse(localStorage.getItem("medicine-collection")) || [];
 
-  static addMedicine(name, manufacturer, expirationDate, quantity) {
+  static addMedicine(
+    name,
+    manufacturer,
+    expirationDate,
+    quantity,
+    prescriptionType
+  ) {
     const latestCollection =
       JSON.parse(localStorage.getItem("medicine-collection")) || [];
 
     let medicine;
+    // Check if it's prescription medicine or over-the-counter
+    if (prescriptionType === "yes") {
+      medicine = new PrescriptionMedicine(
+        name,
+        manufacturer,
+        expirationDate,
+        quantity,
+        prescriptionType
+      );
+    } else {
+      medicine = new OverTheCounterMedicine(
+        name,
+        manufacturer,
+        expirationDate,
+        quantity
+      );
+    }
+
     // Check if medicine with the same name, manufacturer and expiration date exists
     const existingMedicine = latestCollection.find(
       (medicine) =>
@@ -25,6 +53,7 @@ class MedicineManager {
 
       latestCollection.push(medicine);
     }
+
     this.storeMedicine(latestCollection);
     MedicineManager.medicineCollection = latestCollection;
   }
