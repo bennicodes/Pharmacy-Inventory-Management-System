@@ -104,18 +104,31 @@ main {
   flex-direction: column;
   gap: var(--spacing-small);
 }
+.prescription-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-medium);
+  padding-left: var(--spacing-medium);
+}
 
 .add-medicine__group label {
   font-size: var(--font-size-base);
   font-weight: bold;
 }
 
-input {
+input,
+select {
   width: 100%;
   padding: var(--spacing-small);
   border: 1px solid var(--secondary-color);
   border-radius: var(--border-radius);
   font-size: var(--font-size-base);
+}
+.radio-button-container {
+  display: flex;
+  flex-direction: column; /* Stack label above input */
+  align-items: center;
 }
 
 .add-medicine__buttons-container {
@@ -124,6 +137,7 @@ input {
   justify-content: center;
   align-items: center;
   gap: var(--spacing-medium);
+  padding: var(--spacing-medium) 0;
 }
 .add-medicine__buttons-container button {
   min-width: 64px;
@@ -137,7 +151,8 @@ input {
 
 /* Button Styling */
 .add-medicine__button {
-  width: 25%;
+  width: 200px;
+  height: 48px;
   background-color: var(--button-color);
   color: var(--header-text-color);
   display: flex;
@@ -151,7 +166,7 @@ input {
   transition: 0.2s linear;
   position: fixed;
   bottom: 64px;
-  right: 100px;
+  right: 64px;
 }
 
 .add-medicine__button:hover,
@@ -169,10 +184,6 @@ input {
     padding: var(--spacing-medium);
   }
 
-  .inventory__table-container {
-    overflow-x: auto;
-  }
-
   .inventory__table th,
   .inventory__table td {
     padding: var(--spacing-small);
@@ -183,9 +194,11 @@ input {
   }
 
   .add-medicine__button {
+    width: 150px;
     font-size: var(--font-size-small);
     padding: var(--spacing-small);
-    right: 24px;
+    right: 16px;
+    bottom: 32px;
   }
 }
 
@@ -233,6 +246,8 @@ input {
   }
 
   .add-medicine__button {
-    font-size: 0.5rem;
+    padding: 0;
+    height: 32px;
+    bottom: 24px;
   }
 }
