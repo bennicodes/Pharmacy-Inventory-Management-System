@@ -23,6 +23,7 @@
             <tr class="inventory__table-row">
               <th class="inventory__table-header">Medicine Name</th>
               <th class="inventory__table-header">Manufacturer</th>
+              <th class="inventory__table-header">Prescription</th>
               <th class="inventory__table-header">Expiration Date</th>
               <th class="inventory__table-header">Quantity</th>
               <th class="inventory__table-header"></th>
@@ -65,6 +66,36 @@
             maxlength="50"
           />
         </div>
+        
+        <div class="add-medicine__group">
+          <label class="add-medicine__input-label"
+            >Prescription Medicine:</label
+          >
+          <div class="prescription-group">
+            <div class="radio-button-container">
+              <label for="prescription-yes">Yes</label>
+              <input
+                type="radio"
+                id="prescription-yes"
+                name="medicine-prescription"
+                value="yes"
+                class="add-medicine__prescription-input"
+                checked
+              />
+            </div>
+
+            <div class="radio-button-container">
+              <label for="prescription-no">No</label>
+              <input
+                type="radio"
+                id="prescription-no"
+                name="medicine-prescription"
+                value="no"
+                class="add-medicine__prescription-input"
+              />
+            </div>
+          </div>
+        </div>
 
         <div class="add-medicine__group">
           <label
@@ -92,6 +123,8 @@
             minlength="1"
           />
         </div>
+
+        
 
         <p class="validation-message"></p>
         <div class="add-medicine__buttons-container">

@@ -21,10 +21,18 @@ class Ui {
   static closeAddMedicineModal(closeMedicineModalButton, medicineModal) {
     closeMedicineModalButton.addEventListener("click", () => {
       medicineModal.classList.remove("display-add-medicine");
+
       const inputs = document.querySelectorAll(".add-medicine__form input");
       inputs.forEach((input) => {
         input.classList.remove("form__invalid-input");
       });
+    });
+
+    // Close on click outside of form
+    medicineModal.addEventListener("click", (e) => {
+      if (e.target === medicineModal) {
+        medicineModal.classList.remove("display-add-medicine");
+      }
     });
   }
 
@@ -104,6 +112,9 @@ class Ui {
       const manufacturerCell = document.createElement("td");
       manufacturerCell.textContent = medicine.manufacturer;
 
+      const prescriptionCell = document.createElement("td");
+      prescriptionCell.textContent = medicine.isPrescription ? "Yes" : "No";
+
       const expirationDateCell = document.createElement("td");
       expirationDateCell.textContent = medicine.expirationDate;
 
@@ -134,6 +145,7 @@ class Ui {
       row.append(
         nameCell,
         manufacturerCell,
+        prescriptionCell,
         expirationDateCell,
         quantityCell,
         actionsCell

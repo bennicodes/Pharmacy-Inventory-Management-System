@@ -109,7 +109,11 @@ main {
   flex-direction: row;
   align-items: center;
   gap: var(--spacing-medium);
+<<<<<<< HEAD
   padding-left: var(--spacing-medium);
+=======
+padding-left: var(--spacing-medium);
+>>>>>>> medicine-inheritance
 }
 
 .add-medicine__group label {
@@ -247,7 +251,10 @@ select {
 
   .add-medicine__button {
     padding: 0;
+<<<<<<< HEAD
     height: 32px;
     bottom: 24px;
+=======
+>>>>>>> medicine-inheritance
   }
 }
