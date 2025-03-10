@@ -24,9 +24,7 @@ const name = document.querySelector(".add-medicine__name-input");
 const manufacturer = document.querySelector(
   ".add-medicine__manufacturer-input"
 );
-// const prescription = document.querySelector(
-//   'input[name="medicine-prescription"]:checked'
-// ).value;
+
 const expirationDate = document.querySelector(".add-medicine__date-input");
 const quantity = document.querySelector(".add-medicine__quantity-input");
 

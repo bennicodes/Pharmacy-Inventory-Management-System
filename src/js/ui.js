@@ -22,7 +22,7 @@ class Ui {
     closeMedicineModalButton.addEventListener("click", () => {
       medicineModal.classList.remove("display-add-medicine");
 
-      const inputs = document.querySelectorAll(".add-medicine__form input");
+      const inputs = document.querySelectorAll("input");
       inputs.forEach((input) => {
         input.classList.remove("form__invalid-input");
       });
