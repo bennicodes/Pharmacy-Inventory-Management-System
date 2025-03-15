@@ -56,10 +56,10 @@ form.addEventListener("submit", (e) => {
   const prescriptionRadios = document.getElementsByName(
     "medicine-prescription"
   );
-  let isPrescription = false; // Default to "No"
+  let isPrescription = false;
   prescriptionRadios.forEach((radio) => {
     if (radio.checked) {
-      isPrescription = radio.value === "yes"; // If "Yes" is selected, set to true
+      isPrescription = radio.value === "yes";
     }
   });
 
